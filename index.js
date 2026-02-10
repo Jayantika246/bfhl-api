@@ -53,6 +53,16 @@ async function callGeminiAI(prompt) {
 }
 
 // Routes
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'BFHL API is running',
+    endpoints: {
+      health: '/health',
+      bfhl: '/bfhl (POST)'
+    }
+  });
+});
+
 app.get('/health', (req, res) => {
   res.json({ status: 'healthy', timestamp: new Date().toISOString() });
 });
